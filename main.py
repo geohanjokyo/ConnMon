@@ -57,11 +57,13 @@ class ConnMon(unittest.TestCase):
             conn = conn_stat[-9:]
             #연결중 상태가 아닐 시 데이터 프레임에 결과 저장 & 재연결
             if conn != "Connected":
+                discon_stat = driver.find_element(By.XPATH,
+                                            "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.TextView[2]").text
                 now = datetime.datetime.now()
                 discon_time = now.strftime('%Y-%m-%d %H:%M:%S')
                 discon_event = {
                     "Time": [discon_time],
-                    "Event": ["Disconnected"]
+                    "Event": [discon_stat]
                 }
                 df_discon = pd.DataFrame(discon_event)
                 df = pd.concat([df, df_discon])
