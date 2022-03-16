@@ -38,7 +38,7 @@ class ConnMon(unittest.TestCase):
         # KTSync 실행하고 10초 대기
         sleep(10)
 
-        #연결 끊어짐 저장용 데이터 프레인 생성
+        #연결 끊김 이벤트 저장용 데이터 프레인 생성
         df = pd.DataFrame(columns={"Time", "Event"})
 
         #모니터링 종료시간(현재시간 + 10시간) 설정
