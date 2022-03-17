@@ -80,6 +80,8 @@ class ConnMon(unittest.TestCase):
             else :
                 pass
             time_now = time.time()
+            time_remain = time_mon_end - time_now
+            print(str(datetime.timedelta(time_remain)))
 
         # now = datetime.datetime.now()
         # now_date = now.strftime('%Y%m%d%H%M%S')
