@@ -67,10 +67,11 @@ class ConnMon(unittest.TestCase):
                 }
                 df_discon = pd.DataFrame(discon_event)
                 df = pd.concat([df, df_discon])
+                df.to_csv(device_name + "_ConnMon" + ".csv")
                 #재연결
                 driver.find_element(By.XPATH,
                                     "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.LinearLayout[2]/android.widget.TextView[1]").click()
-                sleep(1)
+                sleep(2)
                 # 페어링 된 KDC 선택
                 driver.find_element(By.XPATH,
                                     "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout").click()
@@ -80,9 +81,9 @@ class ConnMon(unittest.TestCase):
                 pass
             time_now = time.time()
 
-        now = datetime.datetime.now()
-        now_date = now.strftime('%Y%m%d%H%M%S')
-        df.to_csv(device_name + "_" + now_date + ".csv")
+        # now = datetime.datetime.now()
+        # now_date = now.strftime('%Y%m%d%H%M%S')
+        # df.to_csv(device_name + "_" + now_date + ".csv")
 
 
 
